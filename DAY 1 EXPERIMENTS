@@ -1,0 +1,397 @@
+1)Generation of number series 1, 2, 3, 4,…..n 
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+ int N, i;
+ printf("Enter the value of N (limit): ");
+ scanf("%d", &N);
+ printf("\n");
+ for(i=1; i<=N; i++)
+ {
+ if(i==N)
+ printf("%d", i);
+ else
+ printf("%d,", i);
+ }
+ getch();
+ return 0;
+}
+
+Output:
+Enter the value of N (limit): 12
+1,2,3,4,5,6,7,8,9,10,11,12
+
+
+2)Generation of even number series 2, 4, 6, …..n 
+#include<stdio.h>
+int main()
+{
+ int i, number;
+ printf("\n Please Enter the Maximum Limit Value : ");
+ scanf("%d", &number);
+ printf("\n Even Numbers between 1 and %d are : \n", number);
+ for(i = 1; i <= number; i++)
+ {
+ if ( i % 2 == 0 ) 
+ {
+ printf(" %d\t", i);
+ }
+ }
+ return 0;
+}
+Output:
+Please Enter the Maximum Limit Value: 12
+Even Numbers between 1 and 12 are:
+2 4 6 8 10 12
+--------------------------------
+
+
+3)Generation of ODD number series 1, 3, 5, …..n 
+#include<stdio.h>
+int main()
+{
+ int i, number;
+ printf("\n Please Enter the Maximum Limit Value : ");
+ scanf("%d", &number);
+ printf("\n Odd Numbers between 1 and %d are : \n", number);
+ for(i = 1; i <= number; i++)
+ {
+ if ( i % 2 != 0 ) 
+ {
+ printf(" %d\t", i);
+ }
+ }
+ return 0;
+}
+Output:
+Please Enter the Maximum Limit Value : 5
+Odd Numbers between 1 and 5 are :
+1 3 5
+--------------------------------
+Process exited after 2.996 seconds with return value 0
+Press any key to continue . . .
+
+
+4)Generation of Fibonacci series 0, 1, 1, 2, 3, 5, 8, …..n
+include<stdio.h> 
+int main() 
+{ 
+int n1=0,n2=1,n3,i,number; 
+printf("Enter the number of elements:"); 
+scanf("%d",&number); 
+printf("\n%d %d",n1,n2);//printing 0 and 1 
+for(i=2;i<number;++i)//loop starts from 2 because 0 and 1 are 
+already printed 
+{ 
+ n3=n1+n2; 
+ printf(" %d",n3); 
+ n1=n2; 
+ n2=n3; 
+} 
+ return 0; 
+}
+ 
+Output:
+Enter the number of elements:9
+0 1 1 2 3 5 8 13 21
+--------------------------------
+Process exited after 3.23 seconds with return value 0
+Press any key to continue . ..
+
+
+5)Summing up series 1 + 2 + 3 + 4….. +n
+#include<stdio.h>
+int series(int n);
+int rseries(int n);
+int main( )
+{
+ int n;
+ printf("Enter number of terms : ");
+ scanf("%d", &n);
+ printf("\b\b Using Recursion :: \n");
+ printf("\b\b = %d\n", series(n)); /* \b to erase last 
++sign */
+ printf("\n\b\b Using Recursion :: \n");
+ printf("\b\b = %d\n\n\n", rseries(n));
+ return 0;
+}
+Output:
+Enter number of terms : 15
+Using Recursion ::
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 = 
+120
+Using Recursion ::
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 = 
+120
+
+
+6) Summing up Even Number series 
+#include<stdio.h>
+int main()
+{
+ int i, number, Sum = 0;
+ printf("\n Please Enter the Maximum Limit Value : ");
+ scanf("%d", &number);
+ 
+ printf("\n Even Numbers between 0 and %d are : ", number);
+ for(i = 1; i <= number; i++)
+ {
+ if ( i%2 == 0 ) //Check whether remainder is 0 or not
+ {
+ printf("%d ", i);
+ Sum = Sum + i;
+ }
+ }
+ printf("\n The Sum of All Even Numbers upto %d = %d", number, 
+Sum);
+ return 0;
+}
+
+Output:
+Please Enter the Maximum Limit Value : 32
+Even Numbers between 0 and 32 are : 2 4 6 8 10 12 14 
+16 18 20 22 24 26 28 30 32
+The Sum of All Even Numbers upto 32 = 272
+--------------------------------
+Process exited after 4.996 seconds with return value 0
+Press any key to continue . . .
+
+
+7)Summing up cubes of n numbers
+#include<stdio.h>
+long cube_sum_n_natural(int n) {
+ long sum = 0;
+ int i;
+ for (i = 1; i <= n; i++) {
+ sum += i * i * i; //cube i and add it with sum
+ }
+ return sum;
+}
+main() {
+ int n;
+ printf("Enter value of n: ");
+ scanf("%d", &n);
+ printf("Result is: %ld", cube_sum_n_natural(n));
+}
+
+Output:
+Enter value of n: 8
+Result is: 1296
+--------------------------------
+Process exited after 3.441 seconds with return value 0
+Press any key to continue . . .
+
+
+8) finding whether the given integer is odd or even in c
+#include <stdio.h>
+int main() {
+ int num;
+ printf("Enter an integer: ");
+ scanf("%d", &num);
+ (num % 2 == 0) ? printf("%d is even.", num) : printf("%d is 
+odd.", num);
+ return 0;
+}
+
+Output:
+Enter an integer: 5
+5 is odd.
+--------------------------------
+Process exited after 2.53 seconds with return value 0
+Press any key to continue . . .
+
+
+9) product series (factorial of a given number)
+#include<stdio.h> 
+int main() 
+{ 
+int i,fact=1,number; 
+printf("Enter a number: "); 
+ scanf("%d",&number); 
+ for(i=1;i<=number;i++){ 
+ fact=fact*i; 
+ } 
+ printf("Factorial of %d is: %d",number,fact); 
+return 0; 
+} 
+Output:
+Enter a number: 6
+Factorial of 6 is: 720
+--------------------------------
+Process exited after 4.411 seconds with return value 0
+Press any key to continue . . .
+
+
+10) Finding given number is Armstrong or not 
+#include<stdio.h>
+int main(){
+ int number,remainder,total=0,temp;
+ printf("enter the number=");
+ scanf("%d",&number);
+ temp=number;
+ while(number>0){
+ remainder=number%10;
+ total=total+(remainder*remainder*remainder);
+ number=number/10;
+ }
+ if(temp==total)
+ printf("This number is Armstrong number");
+ else
+ printf("This number is not Armstrong number");
+ return 0;
+}
+
+Output:
+enter the number=371
+This number is Armstrong number
+--------------------------------
+Process exited after 2.964 seconds with return value 0
+Press any key to continue . . .
+
+
+11) Summing up any n numbers and finding average
+#include <stdio.h>
+int main()
+{ 
+ int num, sum = 0, n;
+ float avg; 
+ printf("Please Enter term of n number:-");
+ scanf("%d", &n);
+ for(int i = 1; i <= n; i++)
+ {
+ printf("Number %d = ", i);
+ scanf("%d", &num);
+ sum = sum + num;
+ }
+ avg = sum / n;
+ printf("\nThe Sum of n Numbers = %d", sum); 
+ printf("\nThe Average of n Numbers = %.2f\n", avg);
+}
+
+Output:
+Please Enter term of n number:-7
+Number 1 = 3
+Number 2 = 6
+Number 3 = 9
+Number 4 = 5
+Number 5 = 8
+Number 6 = 2
+Number 7 = 8
+The Sum of n Numbers = 41
+The Average of n Numbers = 5.00
+--------------------------------
+Process exited after 31.53 seconds with return value 0
+Press any key to continue . . .
+
+
+12)Printing digits of an integer number.
+#include <stdio.h>
+int main() { 
+ int number;
+ printf("Enter an integer: "); 
+ scanf("%d", &number);
+ printf("You entered: %d", number);
+ return 0;
+}
+
+Output:
+Enter an integer: 4
+You entered: 4
+--------------------------------
+Process exited after 20.48 seconds with return value 0
+Press any key to continue . . .
+
+
+13) Summing up the digits of an integer number.
+#include <stdio.h>
+int main()
+{
+ int n, t, sum = 0, remainder;
+ printf("Enter an integer\n");
+ scanf("%d", &n);
+ t = n;
+ while (t != 0)
+ {
+ remainder = t % 10;
+ sum = sum + remainder;
+ t = t / 10;
+ }
+ printf("Sum of digits of %d = %d\n", n, sum);
+ return 0;
+}
+
+Output:
+Enter an integer
+456
+Sum of digits of 456 = 15
+--------------------------------
+Process exited after 3.061 seconds with return value 0
+Press any key to continue . . .
+
+
+14) Reversing the digits of an integer number.
+#include <stdio.h>
+int main() {
+ int n, reverse = 0, remainder;
+ printf("Enter an integer: ");
+ scanf("%d", &n);
+ while (n != 0) {
+ remainder = n % 10;
+ reverse = reverse * 10 + remainder;
+ n /= 10;
+ }
+ printf("Reversed number = %d", reverse);
+ return 0;
+}
+
+Output:
+Enter an integer: 56
+Reversed number = 65
+--------------------------------
+Process exited after 2.822 seconds with return value 0
+Press any key to continue . . .
+
+
+15) Finding the given integer is positive or negative 
+#include <stdio.h>
+int main() {
+ int n, reverse = 0, remainder;
+ printf("Enter an integer: ");
+ scanf("%d", &n);
+ while (n != 0) {
+ remainder = n % 10;
+ reverse = reverse * 10 + remainder;
+ n /= 10;
+ }
+ printf("Reversed number = %d", reverse);
+ return 0;
+}
+
+Output:
+Enter an integer: 56
+Reversed number = 65
+--------------------------------
+Process exited after 2.822 seconds with return value 0
+Press any key to continue . . .
+
+
+16) Swapping two numbers with a temporary variable
+#include<stdio.h>
+int main() 
+{
+ int x, y, temp;
+ printf("Enter the value of x and y: ");
+ scanf("%d %d", &x, &y);
+ printf("Before swapping x=%d, y=%d ", x, y);
+ temp = x;
+ x = y;
+ y = temp;
+ printf("After swapping x=%d, b=%d", x, y);
+ return 0; 
+}
+
+Output:
+Enter the value of x and y: 4 8
+Before swapping x=4, y=8 After swapping x=8, b=4
+-------------------------------
