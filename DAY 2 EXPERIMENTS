@@ -1,0 +1,273 @@
+17)Program to convert decimal to hexadecimal
+#include <stdio.h>
+int main()
+{
+ int decimal_Number = 45;
+ int i = 1, j, temp;
+ char hexa_Number[100];
+ while (decimal_Number != 0) {
+ int ch = decimal_Number / 16;
+ int r = ch * 16;
+ temp = decimal_Number - r;
+ if (temp < 10)
+ temp = temp + 48;
+ else
+ temp = temp + 55;
+ hexa_Number[i++] = temp;
+ decimal_Number = decimal_Number / 16;
+ }
+ printf("Hexadecimal value is: ");
+ for (j = i - 1; j > 0; j--)
+ printf("%c", hexa_Number[j]);
+ return 0;
+}
+
+Output:
+Hexadecimal value is: 2D
+--------------------------------
+Process exited after 0.01386 seconds with return value 0
+Press any key to continue . . .
+
+
+18) Program to convet Hexa to decimal
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+int main()
+{
+ char hex[17];
+ long long decimal, place;
+ int i = 0, val, len;
+ decimal = 0;
+ place = 1;
+ printf("Enter any hexadecimal number: ");
+ gets(hex);
+ len = strlen(hex);
+ len--;
+ for(i=0; hex[i]!='\0'; i++)
+ {
+ if(hex[i]>='0' && hex[i]<='9')
+ {
+ val = hex[i] - 48;
+ }
+ else if(hex[i]>='a' && hex[i]<='f')
+ {
+ val = hex[i] - 97 + 10;
+ }
+ else if(hex[i]>='A' && hex[i]<='F')
+ {
+ val = hex[i] - 65 + 10;
+ }
+ decimal += val * pow(16, len);
+ len--;
+ }
+ printf("Hexadecimal number = %s\n", hex);
+ printf("Decimal number = %lld", decimal);
+ return 0;
+}
+
+Output:
+Enter any hexadecimal number: d1
+Hexadecimal number = d1
+Decimal number = 209
+--------------------------------
+Process exited after 4.614 seconds with return value 0
+Press any key to continue . . 
+
+
+19) Program to convert decimal to octal
+#include <stdio.h>
+int main() 
+{
+ int number;
+ printf("\n Please Enter the Number You want to Convert : ");
+ scanf("%d", &number);
+ printf("\n Octal Number of a Given Number = %o", number);
+ return 0;
+}
+
+Output:
+Please Enter the Number You want to Convert : 50
+Octal Number of a Given Number = 62
+--------------------------------
+Process exited after 3.121 seconds with return value 0
+Press any key to continue . . .
+
+
+20) Program to convert octal to decimal
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+ int octal, decimal = 0;
+ int i = 0;
+ printf("Enter the Octal Number = ");
+ scanf("%d",&octal);
+ while(octal != 0)
+ {
+ decimal = decimal + (octal % 10) * pow(8, i++);
+ octal = octal / 10;
+ }
+ printf("The Decimal Value = %d\n", decimal); 
+ return 0;
+}
+
+Output:
+Enter the Octal Number = 62
+The Decimal Value = 50
+--------------------------------
+Process exited after 4.173 seconds with return value 0
+Press any key to continue . . .
+
+
+21) Program to convert binary to decimal
+#include <stdio.h>
+int main()
+{
+ int binary, decimal = 0, base = 1, remainder;
+ printf("Enter the Binary Number = ");
+ scanf("%d", &binary);
+ int temp = binary;
+ while(temp > 0)
+ {
+ remainder = temp % 10;
+ decimal = decimal + remainder * base;
+ temp = temp / 10;
+ base = base * 2;
+ }
+ printf("The Binary Value = %d\n", binary);
+ printf("The Decimal Value = %d\n", decimal);
+ return 0;
+}
+
+Output:
+Enter the Binary Number = 1010
+The Binary Value = 1010
+The Decimal Value = 10
+--------------------------------
+Process exited after 9.51 seconds with return value 0
+Press any key to continue . . .
+
+
+22) Write a program for binary addition
+#include <stdio.h>
+int main(){
+ long int binary1, binary2;
+ int i = 0, rem = 0, sum[20];
+ printf("Enter first binary number: ");
+ scanf("%ld", &binary1);
+ printf("Enter second binary number: ");
+ scanf("%ld", &binary2);
+ 
+ while (binary1 != 0 || binary2 != 0){
+ sum[i++] = (binary1 %10 + binary2 % 10 + rem) % 2;
+ rem = (binary1 %10 + binary2 % 10 + rem) / 2;
+ binary1 = binary1 / 10;
+ binary2 = binary2 / 10;
+ }
+ if (rem != 0)
+ sum[i++] = rem;
+ --i;
+ printf("Sum of two binary numbers is: ");
+ while (i >= 0){
+ printf("%d", sum[i--]);
+ }
+ return 0;
+}
+
+Output:
+Enter first binary number: 11010
+Enter second binary number: 11110011
+Sum of two binary numbers is: 100001101
+--------------------------------
+Process exited after 24.45 seconds with return value 0
+Press any key to continue . . .
+
+
+23) Write a program for binary subtraction
+#include <stdio.h>
+int binSubtraction(int a, int b)
+{
+ int carry;
+ while (b != 0) {
+ carry = (a & b) << 1;
+ a = a ^ b;
+ b = carry;
+ }
+ return a;
+}
+int main()
+{
+ int number1,number2, binAdd, binSub;
+ printf("Input first integer value: ");
+ scanf("%d",&number1);
+ printf("Input second integer value: ");
+ scanf("%d",&number2);
+ binSub=binSubtraction(number1,number2);
+ printf("Binary Subtraction: %d\n",binSub);
+ return 0;
+}
+
+Output:
+Input first integer value: 9
+Input second integer value: 4
+Binary Subtraction: 5
+--------------------------------
+Process exited after 5.452 seconds with return value 0
+Press any key to continue . . .
+
+
+24) Write a program for binary multiplication
+#include <stdio.h>
+ int binaryproduct(int, int);
+ int main()
+ {
+ long binary1, binary2, multiply = 0;
+ int digit, factor = 1;
+ printf("Enter the first binary number: ");
+ scanf("%ld", &binary1);
+ printf("Enter the second binary number: ");
+ scanf("%ld", &binary2);
+ while (binary2 != 0)
+ {
+ digit = binary2 % 10;
+ if (digit == 1)
+ {
+ binary1 = binary1 * factor;
+ multiply = binaryproduct(binary1, multiply);
+ }
+ else
+ binary1 = binary1 * factor;
+ binary2 = binary2 / 10;
+ factor = 10;
+ }
+ printf("Product of two binary numbers: %ld", multiply);
+ return 0;
+ }
+ int binaryproduct(int binary1, int binary2)
+ {
+ int i = 0, remainder = 0, sum[20];
+ int binaryprod = 0;
+ while (binary1 != 0 || binary2 != 0)
+ {
+ sum[i++] =(binary1 % 10 + binary2 % 10 + remainder) % 2;
+ remainder =(binary1 % 10 + binary2 % 10 + remainder) / 
+2;
+ binary1 = binary1 / 10;
+ binary2 = binary2 / 10;
+ }
+ if (remainder != 0)
+ sum[i++] = remainder;
+ --i;
+ while (i >= 0)
+ binaryprod = binaryprod * 10 + sum[i--];
+ return binaryprod;
+ }
+ 
+Output:
+Enter the first binary number: 10010
+Enter the second binary number: 110110
+Product of two binary numbers: 1111001100
+--------------------------------
+Process exited after 7.948 seconds with return value 0
+Press any key to continue . . 
